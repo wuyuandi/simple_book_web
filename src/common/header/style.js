@@ -82,6 +82,18 @@ export const NavSearch = styled.input.attrs({
 	&.focused {
 		width: 300px;
 	}
+	&.slide-enter {
+		transition: all .2s ease-out;
+	}
+	&.slide-enter-active {
+		width: 300px;
+	}
+	&.slide-exit {
+		transition: all .2s ease-out;
+	}
+	&.slide-exit-active {
+		width: 240px;
+	}
 `;
 export const Addition = styled.div`
 	position: absolute;
