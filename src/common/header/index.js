@@ -2,32 +2,59 @@ import React, { Component }  from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreators } from './store/index.js';
-import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style.js';
-const Header = (props) => {
+import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoItem, SearchInfoList } from './style.js';
 
-	return(
+class Header extends Component {
+
+	getListArea() {
+		if (this.props.focused) {
+			return (
+				<SearchInfo>
+					<SearchInfoTitle>
+						Trending:
+					<SearchInfoSwitch>
+						换一换
+					</SearchInfoSwitch>
+					</SearchInfoTitle>
+					<SearchInfoList>
+						{
+							this.props.list.map((item) =>{
+								return <SearchInfoItem key={item}>{item} </SearchInfoItem>
+							})
+						}
+						
+					</SearchInfoList>
+				</SearchInfo>
+			)
+		}else{
+			return null;
+		}
+	}
+	render() {
+		return(
 
 		<HeaderWrapper>
 			<Logo href='/'/>
 			<Nav>
-				<NavItem className='left active'>首页</NavItem>
-				<NavItem className='left'>下载App</NavItem>
-				<NavItem className='right'>登陆</NavItem>
+				<NavItem className='left active'>Main</NavItem>
+				<NavItem className='left'>App</NavItem>
+				<NavItem className='right'>Login</NavItem>
 				<NavItem className='right'>
 					<span className="iconfont">&#xe636;</span>
 				</NavItem>
 				<SearchWrapper>
 					<CSSTransition 
-						in={props.focused}
+						in={this.props.focused}
 						timeout={200}
 						classNames="slide">
-						<NavSearch className={props.focused ? 'focused': ''}
-							onFocus={props.handleInputFocus}
-							onBlur = {props.handleInputBlur}
+						<NavSearch className={this.props.focused ? 'focused': ''}
+							onFocus={this.props.handleInputFocus}
+							onBlur = {this.props.handleInputBlur}
 							>
 						</NavSearch>
 					</CSSTransition>
-					<span className={props.focused ? 'focused iconfont': 'iconfont'}>&#xe614;</span>
+					<span className={this.props.focused ? 'focused iconfont': 'iconfont'}>&#xe614;</span>
+					{this.getListArea()}
 				</SearchWrapper>
 			</Nav>
 			<Addition>
@@ -39,13 +66,16 @@ const Header = (props) => {
 
 			
 		</HeaderWrapper>
-	)
+		);
 
+	}
 }
+
 
 const mapStateToProps = (state) => {
 	return	{
-		focused: state.get('header').get('focused')
+		focused: state.get('header').get('focused'),
+		list: state.getIn(['header', 'list'])
 
 	}
 
@@ -53,6 +83,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		handleInputFocus() {
+			dispatch(actionCreators.getList());
 			const action = actionCreators.searchFocus();
 			dispatch(action);
 		},
