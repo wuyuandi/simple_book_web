@@ -7,20 +7,34 @@ import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchW
 class Header extends Component {
 
 	getListArea() {
-		if (this.props.focused) {
+		const pageList = [];
+		const jsList = this.props.list.toJS();
+		if (jsList.length){ 
+			for (let i = (this.props.page - 1) * 10 ; i < this.props.page * 10; i++) {
+				pageList.push(
+					<SearchInfoItem key={jsList[i]}>{jsList[i]} </SearchInfoItem>
+
+				)
+			}
+		}
+
+
+
+
+		if (this.props.focused || this.props.mouseIn) {
 			return (
-				<SearchInfo>
+				<SearchInfo onMouseEnter={this.props.handleMouseEnter}
+				onMouseLeave={this.props.handleMouseLeave}>
 					<SearchInfoTitle>
 						Trending:
-					<SearchInfoSwitch>
-						换一换
+					<SearchInfoSwitch onClick={() => this.props.handleChangePage(this.props.page, this.props.totalPage, this.spinIcon)}>
+						<i ref={(icon) => {this.spinIcon= icon}} className="iconfont spin">&#xe851;</i>
+							Next
 					</SearchInfoSwitch>
 					</SearchInfoTitle>
 					<SearchInfoList>
 						{
-							this.props.list.map((item) =>{
-								return <SearchInfoItem key={item}>{item} </SearchInfoItem>
-							})
+							pageList
 						}
 						
 					</SearchInfoList>
@@ -53,7 +67,7 @@ class Header extends Component {
 							>
 						</NavSearch>
 					</CSSTransition>
-					<span className={this.props.focused ? 'focused iconfont': 'iconfont'}>&#xe614;</span>
+					<span className={this.props.focused ? 'focused iconfont zoom': 'iconfont zoom'}>&#xe614;</span>
 					{this.getListArea()}
 				</SearchWrapper>
 			</Nav>
@@ -75,7 +89,10 @@ class Header extends Component {
 const mapStateToProps = (state) => {
 	return	{
 		focused: state.get('header').get('focused'),
-		list: state.getIn(['header', 'list'])
+		list: state.getIn(['header', 'list']),
+		page: state.getIn(['header','page']),
+		totalPage: state.getIn(['header','totalPage']),
+		mouseIn: state.getIn(['header','mouseIn']),
 
 	}
 
@@ -90,9 +107,37 @@ const mapDispatchToProps = (dispatch) => {
 		handleInputBlur() {
 			const action = actionCreators.searchBlur();
 			dispatch(action);
-		}
-		 
+		},
+		handleMouseEnter() {
+			const action = actionCreators.mouseEnter();
+			dispatch(action);
+		},
+		handleMouseLeave() {
+			const action = actionCreators.mouseLeave();
+			dispatch(action);
+		},
+		handleChangePage(page, totalPage, spin) {
+			//console.log(spin);
+			//spin.style.transform = 'rotate(360deg)';
+			let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+			console.log(originAngle);
+			if ( originAngle ) {
+				originAngle = parseInt(originAngle, 10);
+			} else {
+				originAngle = 0;
+			}
+			spin.style.transform = 'rotate('+ (originAngle + 360) + 'deg)';
+			
 
+			if (page< totalPage) {
+				const action = actionCreators.changePage(page+1);
+				dispatch(action);
+			}else{
+				const action = actionCreators.changePage(1);
+				dispatch(action);
+			}
+			
+		},
 	}
 
 }
