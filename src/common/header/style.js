@@ -30,6 +30,7 @@ export const NavItem = styled.div`
 	padding: 0 15px;
 	font-size: 17px;
 	color: #333;
+	cursor: pointer;
 	&.left {
 		float: left;
 	}
@@ -117,6 +118,7 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
 	float:right;
 	font-size: 13px;
+	cursor: pointer;
 	.spin {
 		display: block;
 		float: left;
@@ -156,6 +158,7 @@ export const Button = styled.div`
 	line-height: 38px;
 	border-radius: 19px;
 	font-size: 14px;
+	cursor: pointer;
 	&.reg {
 		color: rgba(236,97,73,.7);
 		border: 1px solid rgba(236,97,73,.7);
