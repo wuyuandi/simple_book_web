@@ -9,10 +9,10 @@ export const HeaderWrapper = styled.div`
 
 export const Logo = styled.a`
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 2px;
+	left: 50px;
 	display: block;
-	height: 56px;
+	height: 54px;
 	width: 100px;
 	background: url(${LogoPic});
 	background-size: contain;

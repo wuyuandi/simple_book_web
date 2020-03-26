@@ -31,7 +31,33 @@ export const HomeRight = styled.div`
 	
 
 `;
+//Topic 
 export const TopicWrapper = styled.div`
 	padding: 20px 0 10px 0;
-	background: red;
+	overflow: hidden;
+	margin-left: -8px;
+	
+`;
+export const TopicItem = styled.div`
+	float: left;
+	background: #f7f7f7;
+	padding-right: 10px;
+	margin-left: 18px;
+	margin-bottom: 18px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #000;
+	border: 1px solid #dcdcdc;
+	border-radius: 4px;
+	.topic-pic {
+		display: block;
+		float: left;
+		width: 32px;
+		height: 32px;
+		margin-right: 10px;
+		border-radius: 4px 0px 0px 4px;
+	}
+
+
 `;
