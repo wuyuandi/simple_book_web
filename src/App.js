@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
         <Provider store={store}>
-    	   <div>
+    	   
     	
         	<GlobalStyle />
          	<Header />
@@ -25,7 +25,7 @@ class App extends Component {
 
             </BrowserRouter>
          	<GlobalIcon />  
-            </div>
+            
     	</Provider>
      	
     )

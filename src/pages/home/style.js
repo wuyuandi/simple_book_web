@@ -7,16 +7,16 @@ export const HomeWrapper = styled.div`
 
 
 `;
-
+//图片为800x400
 export const HomeLeft = styled.div`
 	float: left;
 	margin-left: 15px;
 	padding-top: 30px;
-	width: 825px;
-	height: 500px;
+	width: 800px;
+	
 	
 	.banner-img {
-		width: 825px;
+		width: 800px;
 		height: 400px;
 	}
 
@@ -24,19 +24,19 @@ export const HomeLeft = styled.div`
 
 export const HomeRight = styled.div`
 	float: right;
-	width: 240px;
+	width: 300px;
 	padding-top: 30px;
 	margin: 0 auto;
 	height: 300px;
 	
 
 `;
-//Topic 
+//Topic part css style
 export const TopicWrapper = styled.div`
 	padding: 20px 0 10px 0;
 	overflow: hidden;
-	margin-left: -8px;
-	
+	margin-left: -9px;
+	border-bottom: 1px solid #dcdcdc;
 `;
 export const TopicItem = styled.div`
 	float: left;
@@ -61,3 +61,64 @@ export const TopicItem = styled.div`
 
 
 `;
+
+
+//List part css style
+export const ListItem = styled.div`
+	overflow: hidden;
+	padding: 20px 0px;
+
+	
+	border-bottom: 1px solid #dcdcdc;
+	.list-pic {
+		display: block;
+		float: right;
+		width: 125px;
+		height:100px;
+		border-radius: 10px;
+	}
+
+
+`;
+//800-125=675
+export const ListInfo = styled.div`
+
+	width: 675px;
+	float: left;
+	.title {
+		font-size: 18px;
+		line-height: 27px;
+		font-weight: bold;
+		color: #333;
+	}
+	.desc {
+		line-height: 24px;
+		font-size: 13px;
+		color: #999;
+	}
+`;
+//Right side recommend style
+export const RecommendWrapper = styled.div`
+	
+	width: 300px;
+
+`;
+export const RecommendItem = styled.div`
+	width: 280px;
+	height: 50px;
+	margin: 0px 0px 6px;
+	background: url(${(props) => props.imgUrl});
+	background-size: contain;
+`;
+export const WriterWrapper = styled.div`
+	width: 280px;
+	border: 1px solid #dcdcdc;
+	border-radius: 3px;
+	height: 400px;
+	line-height: 300px;
+	text-align: center;
+`;
+
+
+
+
