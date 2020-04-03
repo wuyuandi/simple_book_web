@@ -18,8 +18,8 @@ class App extends Component {
     	   
     	
         	<GlobalStyle />
-         	<Header />
-            <BrowserRouter>
+         	<BrowserRouter>
+            <Header />
                 <Route path='/' exact component={Home}></Route>
                 <Route path='/detail' exact component={Detail}></Route>
 

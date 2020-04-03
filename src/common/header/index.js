@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreators } from './store/index.js';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoItem, SearchInfoList } from './style.js';
-
+import { Link } from 'react-router-dom';
 class Header extends Component {
 
 	getListArea() {
@@ -48,7 +48,9 @@ class Header extends Component {
 		return(
 
 		<HeaderWrapper>
-			<Logo href='/'/>
+			<Link to='/'>
+				<Logo />
+			</Link>
 			<Nav>
 				<NavItem className='left active'>Main</NavItem>
 				<NavItem className='left'>App</NavItem>
@@ -73,8 +75,8 @@ class Header extends Component {
 			</Nav>
 			<Addition>
 				<Button className='writting'>
-					<span className="iconfont">&#xe615;</span>写文章</Button>	
-				<Button className='reg'>注册</Button>
+					<span className="iconfont">&#xe615;</span>Writing</Button>	
+				<Button className='reg'>Sign Up</Button>
 				
 			</Addition>
 
