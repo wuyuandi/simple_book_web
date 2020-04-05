@@ -52,7 +52,9 @@ class Header extends Component {
 				<Logo />
 			</Link>
 			<Nav>
+				<Link to='/'>
 				<NavItem className='left active'>Main</NavItem>
+				</Link>
 				<NavItem className='left'>App</NavItem>
 				<NavItem className='right'>Login</NavItem>
 				<NavItem className='right'>

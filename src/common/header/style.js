@@ -5,6 +5,7 @@ export const HeaderWrapper = styled.div`
 	position: relative;
 	height: 56px;
 	border-bottom: 1px solid #f0f0f0;
+	background: #fff;
 `;
 
 export const Logo = styled.div`
@@ -161,12 +162,12 @@ export const Button = styled.div`
 	font-size: 14px;
 	cursor: pointer;
 	&.reg {
-		color: rgba(236,97,73,.7);
-		border: 1px solid rgba(236,97,73,.7);
+		color: #1DA1F2;
+		border: 1px solid #1DA1F2;
 	}
 	&.writting {
 		color: #fff;
-		background: #ec6149;
+		background: #1DA1F2;
 	}
 	
 `
