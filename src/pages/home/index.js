@@ -4,7 +4,7 @@ import List from './components/List.js';
 import Recommend from './components/Recommend.js';
 import Writer from './components/Writer.js';
 import { HomeWrapper, HomeLeft, HomeRight, BackTop} from './style.js'
-import axios from 'axios';
+
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 

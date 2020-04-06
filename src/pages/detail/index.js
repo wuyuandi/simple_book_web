@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { DetailWrapper, Header, Content } from './style.js';
 import { connect } from 'react-redux';
+import { actionCreators } from './store';
+
 
 class Detail extends Component {
 	render() {
@@ -16,7 +18,7 @@ class Detail extends Component {
 		)
 	}
 	componentDidMount() {
-		this.props.getDetail();
+		this.props.getDetail(this.props.match.params.id);
 
 	}
 }
@@ -27,7 +29,9 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-	
+	getDetail(id) {
+	dispatch(actionCreators.getDetail(id));
+	}
 })
 
 
