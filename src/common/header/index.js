@@ -56,7 +56,11 @@ class Header extends Component {
 				<NavItem className='left active'>Main</NavItem>
 				</Link>
 				<NavItem className='left'>App</NavItem>
-				<NavItem className='right'>Login</NavItem>
+				{
+					this.props.login ? <NavItem className='right'>Log out</NavItem> : 
+					<Link to='/login'><NavItem className='right'>Login</NavItem></Link>
+				}
+				
 				<NavItem className='right'>
 					<span className="iconfont">&#xe636;</span>
 				</NavItem>
@@ -97,6 +101,7 @@ const mapStateToProps = (state) => {
 		page: state.getIn(['header','page']),
 		totalPage: state.getIn(['header','totalPage']),
 		mouseIn: state.getIn(['header','mouseIn']),
+		login: state.getIn(['login','login'])
 
 	}
 
