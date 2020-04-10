@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { actionCreators } from './store/index.js';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoItem, SearchInfoList } from './style.js';
 import { Link } from 'react-router-dom';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
 class Header extends Component {
 
 	getListArea() {
@@ -57,7 +58,7 @@ class Header extends Component {
 				</Link>
 				<NavItem className='left'>App</NavItem>
 				{
-					this.props.login ? <NavItem className='right'>Log out</NavItem> : 
+					this.props.login ? <NavItem onClick={this.props.handlelogout} className='right'>Log out</NavItem> : 
 					<Link to='/login'><NavItem className='right'>Login</NavItem></Link>
 				}
 				
@@ -80,10 +81,12 @@ class Header extends Component {
 				</SearchWrapper>
 			</Nav>
 			<Addition>
+				<Link to='/write'>
 				<Button className='writting'>
+
 					<span className="iconfont">&#xe615;</span>Writing</Button>	
 				<Button className='reg'>Sign Up</Button>
-				
+				</Link>
 			</Addition>
 
 			
@@ -151,6 +154,9 @@ const mapDispatchToProps = (dispatch) => {
 			}
 			
 		},
+		handlelogout() {
+			dispatch(loginActionCreators.logout())
+		}
 	}
 
 }

@@ -7,7 +7,7 @@ const changeDetail = (title, content) => ({
 	content
 
 
-})
+});
 
 export const getDetail = (id) => {
 	return (dispatch) => {
