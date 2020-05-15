@@ -15,10 +15,10 @@ export const LoginBox = styled.div`
 	width: 400px;
 	height: 400px;
 	margin: 100px auto 0;
-	padding: 20px 0px;
-	background: #fff;
+	padding: 40px;
+	background: rbga(0,0,0,0.5);
 	border-radius: 4px;
-	box-shadow: 0 0 8px rgba(0,0,0,.1)
+	box-shadow: 0 0 8px rgba(0,0,0,.6)
 `;
 export const LoginItem = styled.div`
 	
@@ -47,8 +47,10 @@ export const LoginItem = styled.div`
 `;
 
 export const Input = styled.input`
+	outline: none;
+	border: none;
 	display: block;
-	width: 200px;
+	width: 50%;
 	height: 30px;
 	line-height: 30px;
 	padding: 0 10px;

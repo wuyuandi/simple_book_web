@@ -26,7 +26,7 @@ class App extends Component {
                 <Route path='/detail/:id' exact component={Detail}></Route>
                 <Route path='/login' exact component={Login}></Route>
                 <Route path='/write' exact component={Write}></Route>
-            </BrowserRouter>
+          </BrowserRouter>
          	<GlobalIcon />  
             
     	</Provider>

@@ -22,7 +22,7 @@ class Home extends PureComponent {
 		return (
 			<HomeWrapper>
 				<HomeLeft>
-					<img className="banner-img" alt="U of A 14th President Bill Flanagan" src="//upload-images.jianshu.io/upload_images/11864358-a0a516a8e7bbaa45?imageMogr2/auto-orient/strip|imageView2/2/w/640/format/webp" />
+					<img className="banner-img" alt="嗷嗷" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Edmonton_cityscape.jpg/1920px-Edmonton_cityscape.jpg" />
 					<Topic />
 					<List />
 
