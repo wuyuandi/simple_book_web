@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-08 16:49:08
- * @LastEditTime: 2020-06-16 13:12:01
+ * @LastEditTime: 2020-06-17 11:46:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /simple_book_web/src/pages/login/index.js
@@ -14,9 +14,7 @@ import { actionCreators } from './store';
 
 import { Redirect } from 'react-router-dom';
 //高阶组件完成表单校验
-function KFformCreate(Comp) {
-	
-}
+
 
 class Login extends PureComponent {
 	render() {

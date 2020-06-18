@@ -6,7 +6,9 @@ import { Redirect } from 'react-router-dom';
 
 
 class Write extends PureComponent {
+	
 	render() {
+		console.log(111);
 		const { loginStatus } = this.props;
 		if (loginStatus) {
 			return (
@@ -21,6 +23,7 @@ class Write extends PureComponent {
 		
 
 	}
+	
 }
 //从reducer拿
 const mapState = (state) => ({
