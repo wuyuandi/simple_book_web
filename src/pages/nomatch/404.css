@@ -1,0 +1,53 @@
+.WaterBallWrapper {
+    width: 400px;
+    height: 400px;
+    border: 3px solid darkturquoise;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+
+}
+
+
+.WaterBallWave {
+    width: 400px;
+    height: 400px;
+    background: darkturquoise;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+.WaterBallWave::before {
+    content: "404 NOT FOUND";
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    color: rgba(0,206,209,0.8);
+    z-index: 99;
+}
+.WaterBallWave:after {
+        content: "";
+        height: 500px;
+        width: 500px;
+        background: rgba(255,255,255,0.8);
+        position: absolute;
+        left: 50%;
+        top:0;
+        transform: translate(-50%, -60%);
+        border-radius: 40%;
+        animation: rotated 5s linear infinite;
+    
+}
+
+@keyframes rotated {
+    100% {
+
+        transform: translate(-50%, -60%) rotate(360deg);
+    };
+}
